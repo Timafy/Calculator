@@ -47,6 +47,10 @@ function clearState(calculator) {
 
 function pressOperator(calculator, button) {
     calculator.num1 = Number(calculator.input);
+
+    if (calculator.num2 != null) {
+        
+    }
     calculator.operator = button.textContent;
     clearInput(calculator);
 }
@@ -65,7 +69,7 @@ function operate(calculator, operator, num1, num2){
 };
 
 const body = document.querySelector("body");
-body.setAttribute("style", "font-family: andale mono, monospace; background-color: black")
+body.setAttribute("style", "font-size: 28px; font-family: andale mono, monospace; background-color: black")
 const divTitle = document.createElement("div");
 divTitle.setAttribute("style", "display: flex; justify-content: center;");
 const h1Title = document.createElement("h1");
@@ -80,8 +84,8 @@ for (let i = 0; i < 4; i++) {
     div.id = `Button Div ${i}`;
     for (let j=0; j < 4; j++) {
         const button = document.createElement("button");
-        button.setAttribute("style", "font-family: andale mono, monospace; height: 80px; 80px; aspect-ratio: 1/1; font-size: 35px")
-        button.id = `Button ${j}`;
+        button.setAttribute("style", "border-radius: 10px; margin: 2px; border: 1px white; font-family: andale mono, monospace; height: 90px; aspect-ratio: 1/1; font-size: 35px")
+        button.id = `Button ${j}`; 
         div.appendChild(button);
         
         // displaying digits on the calculator
@@ -107,7 +111,7 @@ for (let i = 0; i < 4; i++) {
                 }
                 if (j == 3) {
                     button.textContent = "+";
-                    button.style.backgroundColor = "rgb(121, 162, 199)";
+                    button.style.backgroundColor = "rgb(141, 204, 240)";
                     button.addEventListener("click", () => {
                         pressOperator(calculator, button);
                     });
@@ -135,7 +139,7 @@ for (let i = 0; i < 4; i++) {
                 }
                 if (j == 3) {
                     button.textContent = "-";
-                    button.style.backgroundColor = "rgb(121, 162, 199)";
+                    button.style.backgroundColor = "rgb(141, 204, 240)";
                     button.addEventListener("click", () => {
                         pressOperator(calculator, button);
                     });
@@ -164,7 +168,7 @@ for (let i = 0; i < 4; i++) {
                 }
                 if (j == 3) {
                     button.textContent = "x";
-                    button.style.backgroundColor = "rgb(121, 162, 199)";
+                    button.style.backgroundColor = "rgb(141, 204, 240)";
                     button.addEventListener("click", () => {
                         pressOperator(calculator, button);
                     });
@@ -196,7 +200,7 @@ for (let i = 0; i < 4; i++) {
                 }
                 if (j == 3) {
                     button.textContent = "/";
-                    button.style.backgroundColor = "rgb(121, 162, 199)";
+                    button.style.backgroundColor = "rgb(141, 204, 240)";
                     button.addEventListener("click", () => {
                         pressOperator(calculator, button);
                     });
@@ -210,7 +214,7 @@ for (let i = 0; i < 4; i++) {
 const divDisplay = document.createElement("div");
 divDisplay.setAttribute("style", "display: flex; justify-content: center");
 const h1Display  = document.createElement("h1");
-h1Display.setAttribute("style", "font-family: andale mono, monospace; color: white;");
+h1Display.setAttribute("style", "font-size: 45px; font-family: andale mono, monospace; color: white;");
 divDisplay.appendChild(h1Display);
 h1Display.textContent = `${calculator.input}`;
 body.appendChild(divDisplay);
